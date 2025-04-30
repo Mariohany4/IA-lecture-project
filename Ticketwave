@@ -4,12 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TicketWave</title>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; color: white; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      color: white;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+    }
 
     header {
-      background-image: url(Image2.jpg);
+      background-image: url(https://img.freepik.com/free-vector/gradient-abstract-wireframe-background_23-2149009903.jpg?t=st=1746052384~exp=1746055984~hmac=25b36798735f30a1bdf33b5ee78e9bdb7babd4e5753142ddc6dde8c606a13ecd&w=996);
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -119,6 +130,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -149,8 +161,6 @@
       document.getElementById('menu').classList.toggle('open');
     }
   </script>
-  
-  
 
 </body>
 </html>

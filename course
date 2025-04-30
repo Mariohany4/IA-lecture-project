@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> Online Courses</title>
+  <title>Online Courses</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; color: white; }
+    body, html { height: 100%; color: white; font-family: sans-serif; }
 
     header {
-      background-image: url(Image3.jpg);
+      background-image: url(https://img.freepik.com/free-vector/dark-wavy-colors-background_23-2148403785.jpg?t=st=1746052873~exp=1746056473~hmac=fc9a1542bf74949002f47bb411de45c2a5ffb04d2147874cd5af1be994a8d77c&w=996);
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -125,7 +125,7 @@
   <header>
     <nav>
       <div class="logo">Online Courses</div>
-      <div class="menu-toggle">
+      <div class="menu-toggle" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
@@ -148,9 +148,11 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById('menu').classList.toggle('open');
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("open");
     }
   </script>
 
 </body>
 </html>
+

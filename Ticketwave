@@ -12,8 +12,11 @@
       box-sizing: border-box;
     }
 
-    body, html {
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       color: white;
       font-family: Arial, sans-serif;
       background-color: #121212;
@@ -96,6 +99,24 @@
       background: #fbc02d;
     }
 
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 35px;
+      margin-bottom: 20px;
+      color: #fdd835;
+    }
+
+    section p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
     .menu-toggle {
       display: none;
       cursor: pointer;
@@ -127,7 +148,14 @@
       .menu-toggle {
         display: block;
       }
+
+      nav ul li {
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+      }
     }
+
   </style>
 </head>
 
@@ -142,24 +170,48 @@
         <span></span>
       </div>
       <ul id="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
-    <div class="hero">
+    <div class="hero" id="home">
       <h1>Book Your Tickets Online</h1>
       <p>Find and book tickets for concerts, sports, cinema, and more all in one place with TicketWave.</p>
-      <button>Book Now</button>
+      <button onclick="document.getElementById('events').scrollIntoView({behavior: 'smooth'})">Book Now</button>
     </div>
   </header>
+
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <p>Stay up to date with the hottest events happening around you. From live concerts to blockbuster movie premieres, we've got your next outing covered!</p>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing Plans</h2>
+    <p>Choose the ticket that fits your budget. Whether it's general admission or VIP, TicketWave offers competitive prices and exclusive deals for all categories.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to our support team any time. We're here to help you with bookings, refunds, or event information.</p>
+  </section>
 
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('open');
     }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
 
 </body>

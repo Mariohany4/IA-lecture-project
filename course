@@ -6,7 +6,15 @@
   <title>Online Courses</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; color: white; font-family: sans-serif; }
+    html {
+      scroll-behavior: smooth;
+    }
+    body, html {
+      height: 100%;
+      color: white;
+      font-family: sans-serif;
+      background-color: #121212;
+    }
 
     header {
       background-image: url(https://img.freepik.com/free-vector/dark-wavy-colors-background_23-2148403785.jpg?t=st=1746052873~exp=1746056473~hmac=fc9a1542bf74949002f47bb411de45c2a5ffb04d2147874cd5af1be994a8d77c&w=996);
@@ -99,6 +107,24 @@
       background: #00bcd4;
     }
 
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 35px;
+      margin-bottom: 20px;
+      color: #00e5ff;
+    }
+
+    section p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -117,12 +143,17 @@
       .menu-toggle {
         display: block;
       }
+
+      nav ul li {
+        padding: 15px;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <header id="home">
     <nav>
       <div class="logo">Online Courses</div>
       <div class="menu-toggle" onclick="toggleMenu()">
@@ -131,10 +162,10 @@
         <span></span>
       </div>
       <ul id="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Courses</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
@@ -146,11 +177,34 @@
     </div>
   </header>
 
+  <section id="courses">
+    <h2>Our Courses</h2>
+    <p>Browse a wide variety of courses including Web Development, Data Science, Graphic Design, and Digital Marketing, all designed to boost your career.</p>
+  </section>
+
+  <section id="categories">
+    <h2>Categories</h2>
+    <p>Choose from diverse categories like Programming, Business, Photography, Language Learning, Health & Fitness, and more tailored to your interests.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or need support, feel free to reach out to us anytime. We are here to help you succeed on your learning journey.</p>
+  </section>
+
   <script>
     function toggleMenu() {
-      const menu = document.getElementById("menu");
-      menu.classList.toggle("open");
+      document.getElementById('menu').classList.toggle('open');
     }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
 
 </body>
